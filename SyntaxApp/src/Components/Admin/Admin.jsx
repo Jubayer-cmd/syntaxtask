@@ -5,7 +5,7 @@ function Admin() {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    fetch("http://localhost:5000/services", {
+    fetch("https://syntax-backend.onrender.com/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",

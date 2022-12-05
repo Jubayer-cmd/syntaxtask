@@ -120,7 +120,7 @@ function Header() {
           >
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-                Logo
+                Syntax
               </h5>
               <button
                 type="button"
@@ -131,44 +131,77 @@ function Header() {
             </div>
             <div className="offcanvas-body">
               <Nav className="d-block">
-                <Nav.Link
-                  href="#features"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseExample"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-                  Home<i className="fa-solid fa-chevron-down fa-xs"></i>
-                </Nav.Link>
-                <li className="nav-item dropdown">
-                  <div
-                    className="collapse ms-4"
-                    id="collapseExample"
-                    aria-labelledby="navbarDropdownMenuLink"
+                <div className="">
+                  <NavLink
+                    as={Link}
+                    to="/"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "fs-5 d-block text-warning px-3 m-3"
+                        : "fs-5 d-block text-decoration-none px-3 m-3"
+                    }
                   >
-                    <Nav.Link className="text-black" href="#features">
-                      Home 2
-                    </Nav.Link>
-                    <Nav.Link href="#features">Home 3</Nav.Link>
-                    <Nav.Link href="#features">Home 4</Nav.Link>
-                    <Nav.Link href="#features">Home 5</Nav.Link>
-                    <Nav.Link href="#features">Home 6</Nav.Link>
-                  </div>
-                </li>
-                <Nav.Link href="#features">About</Nav.Link>
-                <Nav.Link href="#pricing">Projects</Nav.Link>
-                <Nav.Link href="#pricing">Contact</Nav.Link>
-              </Nav>
-              <Nav>
-                <Nav.Link href="#deets" className="text-white">
-                  <i className="fa-brands fa-behance"></i>
-                </Nav.Link>
-                <Nav.Link href="#deets" className="text-white">
-                  <i className="fa-brands fa-linkedin-in"></i>
-                </Nav.Link>
-                <Nav.Link href="#deets" className="text-white">
-                  <i className="fa-brands fa-slack"></i>
-                </Nav.Link>
+                    Home
+                  </NavLink>
+                  <NavLink
+                    as={Link}
+                    to="/service"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "fs-5 d-block text-warning px-3 m-3"
+                        : "fs-5 d-block text-decoration-none px-3 m-3"
+                    }
+                  >
+                    Service
+                  </NavLink>
+                  <NavLink
+                    as={Link}
+                    to="/content"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "fs-5 d-block text-warning px-3 m-3"
+                        : "fs-5 d-block  text-decoration-none px-3 m-3"
+                    }
+                  >
+                    Content
+                  </NavLink>
+                  {admin && user ? (
+                    <>
+                      <NavLink
+                        as={Link}
+                        to="/admin"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "fs-5 d-block text-warning m-3 px-3"
+                            : "fs-5 d-block text-decoration-none m-3 px-3"
+                        }
+                      >
+                        Admin
+                      </NavLink>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </div>
+                {user ? (
+                  <>
+                    <Button className="d-block m-3" onClick={logout}>
+                      SignOut
+                    </Button>
+                  </>
+                ) : (
+                  <NavLink
+                    as={Link}
+                    to="/login"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "fs-4 text-warning px-3 m-3"
+                        : "fs-4 d-block text-white text-decoration-none px-3 m-3"
+                    }
+                  >
+                    Login
+                  </NavLink>
+                )}
               </Nav>
             </div>
           </div>

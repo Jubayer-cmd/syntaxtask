@@ -8,6 +8,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import useToken from "../../Hooks/useToken";
+import Loading from "./../../Home/Loading";
 
 const Login = () => {
   let ErrorOccur;
@@ -32,9 +33,9 @@ const Login = () => {
     }
   }, [user, gUser, from, navigate]);
 
-  //   if (gloading) {
-  //     return <Loading></Loading>;
-  //   }
+  if (gloading) {
+    return <Loading></Loading>;
+  }
 
   if (error) {
     ErrorOccur = <p className="text-danger">Error: {error?.message}</p>;

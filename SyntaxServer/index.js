@@ -22,6 +22,7 @@ async function run() {
     await client.connect();
     console.log("DB Connected");
     const userCollection = client.db("syntax").collection("user");
+    const serviceCollection = client.db("syntax").collection("service");
 
     app.put("/user/:email", async (req, res) => {
       const email = req.params.email;
@@ -33,6 +34,24 @@ async function run() {
       };
       const result = await userCollection.updateOne(filter, updateDoc, options);
       res.send({ result });
+    });
+
+    app.get("/admin/:email", async (req, res) => {
+      const email = req.params.email;
+      const user = await userCollection.findOne({ email: email });
+      const isAdmin = user.role === "admin";
+      res.send({ admin: isAdmin });
+    });
+
+    app.post("/services", async (req, res) => {
+      const service = req.body;
+      const result = await serviceCollection.insertOne(service);
+      res.send(result);
+    });
+
+    app.get("/services", async (req, res) => {
+      const service = await serviceCollection.find().toArray();
+      res.send(service);
     });
   } finally {
   }

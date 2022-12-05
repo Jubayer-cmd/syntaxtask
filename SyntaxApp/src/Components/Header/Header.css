@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+
+.offcanvas {
+  --bs-offcanvas-width: min(70vw, 70vw) !important;
+}
+
+.navbar-custom {
+  background-color: black;
+  padding-top: 30px;
+  cursor: default;
+  height: 10vh;
+}
+
+/* .navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+} */
+
+.navbrand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  cursor: default;
+}
+.navbrand:hover {
+  color: lightgray;
+}
+
+.navbars {
+  font-size: 18px;
+  font-weight: normal;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 0 30px;
+  font-style: normal;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  cursor: default;
+}
+
+.navbars::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  color: lightgray;
+  left: 25%;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navbars:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navbars:hover {
+  color: lightgray;
+  cursor: default;
+}
+
+.navbarsActive {
+  position: relative;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 0 30px;
+  font-style: normal;
+  text-decoration: none;
+  cursor: default;
+}
+
+.navbarsActive::after {
+  content: "";
+  width: 50%;
+  height: 2px;
+  border-bottom: 2px solid white;
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+}
+
+.navbarsActive:hover {
+  color: #ffffff;
+  cursor: default;
+}
